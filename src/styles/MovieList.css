@@ -1,0 +1,118 @@
+.movie-list-container {
+  margin-bottom: 40px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.movie-list-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  padding: 0 10px;
+}
+
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 0 10px;
+}
+
+.loading, .error, .no-results {
+  padding: 40px;
+  text-align: center;
+  color: #a3a3a3;
+  font-size: 18px;
+}
+
+.section-loading {
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.error {
+  color: #e57373;
+}
+
+/* Extra large screens */
+@media (min-width: 1400px) {
+  .movie-list {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 25px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .movie-list {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 22px;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .movie-list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Small tablets and large phones */
+@media (min-width: 768px) and (max-width: 991px) {
+  .movie-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  
+  .movie-list-title {
+    font-size: 20px;
+  }
+
+  .section-loading {
+    min-height: 250px;
+  }
+}
+
+/* Small phones */
+@media (min-width: 480px) and (max-width: 767px) {
+  .movie-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .movie-list-title {
+    font-size: 20px;
+  }
+
+  .section-loading {
+    min-height: 200px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 479px) {
+  .movie-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .movie-list-title {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  
+  .loading, .error, .no-results {
+    padding: 30px;
+    font-size: 16px;
+  }
+
+  .section-loading {
+    min-height: 180px;
+  }
+} 

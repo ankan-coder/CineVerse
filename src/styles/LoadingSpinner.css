@@ -1,0 +1,173 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  width: 100%;
+  background-color: rgba(12, 12, 14, 0.97);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.spinner-wrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.spinner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top-color: #f5c518;
+  animation: spin 1.5s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+  box-shadow: 0 0 20px rgba(245, 197, 24, 0.2);
+}
+
+.spinner::before, .spinner::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+
+.spinner::before {
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 4px solid transparent;
+  border-top-color: rgba(245, 197, 24, 0.5);
+  animation: spin 2s linear infinite;
+}
+
+.spinner-inner {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top-color: #e50914;
+  animation: spin 2.5s cubic-bezier(0.36, 0.05, 0.65, 1) infinite reverse;
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.2);
+}
+
+.spinner-logo {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  z-index: 2;
+  animation: pulse 2s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.logo-first {
+  color: #f5c518;
+  text-shadow: 0 0 15px rgba(245, 197, 24, 0.5);
+}
+
+.logo-last {
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.loading-message {
+  font-size: 18px;
+  color: #ffffff;
+  margin-top: 20px;
+  opacity: 0.9;
+  animation: fadeInOut 2s ease-in-out infinite;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+/* For full page loading (like in MovieDetailsPage) */
+.full-page-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(12, 12, 14, 0.97);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .spinner-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .spinner-logo {
+    font-size: 24px;
+  }
+  
+  .loading-message {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .spinner-wrapper {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .spinner-logo {
+    font-size: 20px;
+  }
+  
+  .loading-message {
+    font-size: 14px;
+    letter-spacing: 0.8px;
+  }
+} 
